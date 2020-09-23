@@ -1,3 +1,4 @@
-AddCommand();
-alert(ShuffleCommand(Command));
-PrintText(Command);
+console.log(ShuffleCommands(Commands));
+AddCommands();
+console.log(Commands);
+

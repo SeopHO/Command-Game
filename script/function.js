@@ -1,44 +1,60 @@
-let Game={};
-
-let YourText = document.querySelector('.Yourtext');
-let EnemyText = document.querySelector('.Enemytext');
-
-
-Game.command = ['UP','DOWN','LEFT','RIGHT'];
-
-let Command = Game.command;
-Game.len = Command.length;
-
-function InputText()
-{
-       
+//command object.
+let command_up={
+    text:'UP',
+    code:'ArrowUp',
 }
 
-function PrintText(Command)
-{
-    EnemyText.textContent = Command;
+let command_down={
+    text:'DOWN',
+    code:'ArrowDown',
 }
 
-function AddCommand()
-{
-    for(let i =0;i<Game.len;i++)
-    {
-        Command.push(Command[i]);
-    }
-    Game.len+=Game.len;
+let command_right={
+    text:'RIGHT',
+    code:'ArrowRight',
 }
 
-function ShuffleCommand(Command)
+let command_left={
+    text:'LEFT',
+    code:'ArrowLeft',
+}
+
+let Commands=[command_up, command_down, command_right, command_left];
+
+let Commands_len = Commands.length;
+
+function ShuffleCommands(Commands)
 {
-    for(let i=0;i<Game.len;i++)
+    for(let i=0;i<Commands_len;i++)
     {
         let j = Math.floor(Math.random()*(i+1));
-        let temp = Command[i];
-        Command[i] = Command[j];
-        Command[j] = temp;       
+        let temp = Commands[i];
+        Commands[i] = Commands[j];
+        Commands[j] = temp;       
     }
-    return Command;
+    return Commands;
 }
+
+function AddCommands()
+{
+    for(let i =0;i<Commands_len;i++)
+    {
+        Commands.push(Commands[i]);
+    }
+    Commands_len+=Commands_len;
+}
+
+let question = document.querySelector('.question');
+
+//problem..
+function QuestionText()
+{
+    let qt = document.createTextNode(Commands.text);
+    question.appendChild(qt);
+}
+
+
+
 
 
 
