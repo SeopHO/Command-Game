@@ -1,4 +1,8 @@
-console.log(ShuffleCommands(Commands));
-AddCommands();
+ShuffleCommands();
 console.log(Commands);
+console.log(Commands_text);
+
+Qshow();
+key();
+
 
