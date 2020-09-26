@@ -1,4 +1,1 @@
-ShuffleCommands();
-Qshow();
-
-ConfineCommands();
+draw();
