@@ -24,8 +24,9 @@ let Commands_text=[command_up.text, command_down.text, command_right.text, comma
 let Commands_user=[];
 let Commands_len = Commands.length;
 
-let Correct_count=0;
-let Wrong_count=0;
+//let Correct_count=-1;
+// let Wrong_count=0;
+let Wrong=false;
 
 function ShuffleCommands()
 {
@@ -53,22 +54,51 @@ function AddCommands()
     Commands_len+=Commands_len;
 }
 
+
+function compareResult()
+{
+    if(Wrong == true)
+    {
+        alert('WRONG!!');
+    }
+    else
+    {
+        alert('CORRECT!');
+    }
+}
+
 function compareCommands()
 {
     for(let i=0;i<Commands_len;i++)
     {
-        if(Commands[i].code == Commands_user[i])
+        if(Commands[i].code != Commands_user[i])
         {
-            Correct_count++;
-        }
-        else if(Commands[i].code != Commands_user[i])
-        {
-            Wrong_count++;
+            Wrong = true;
         }
     }
-    console.log(Correct_count,Wrong_count);
+    compareResult();
 }
 
+//Test...
+function compareCommandsTest()
+{
+    for(let i=0;i<Commands_len;i++)
+    {
+    // if(Commands[i].code == Commands_user[i])
+    // {
+    //     Correct_count++;
+    // }
+    // else if(Commands[i].code != Commands_user[i])
+    // {
+    //     Wrong_count++;
+    // }
+    }
+        //console.log(Correct_count,Wrong_count);
+}
+//
+
+
+//main function
 function coreInit()
 {
     ShuffleCommands();
