@@ -3,6 +3,7 @@ let answer = document.querySelector('.answer');
 let user_len=-1;
 
 let keyOnOff=true;
+//true-can. false-can't
 
 let user_stop=false;
 
@@ -66,7 +67,4 @@ function keyUpHandler()
         userSubmit();
     }
 }
-
-
-
-
+    
