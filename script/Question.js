@@ -1,28 +1,23 @@
 let question = document.querySelector('.question');
-let count=-1;
 
-function appearQuestion()
-{
-    count++;
-    let rec = Commands_text[count];
-    question.append(`${rec} `);
-    stopappearQuestion();
-}
-
-function stopappearQuestion()
-{
-    if(count === Commands_len)
-    {
-        clearInterval(appearQuestion);
-        console.log(true);    
-    }
-}
-
+let count=0;
 
 function drawQuestion()
 {
-    setInterval(appearQuestion,1000);
+    let timer=setInterval(function(){
+        let rec = Commands_text[count];
+        question.append(`${rec} `);
+        count++;
+        if(count === Commands_len)
+        {
+            clearInterval(timer);
+            user_stop = false;
+
+        }
+    },1000)
 }
+
+
 
 function questionInit()
 {

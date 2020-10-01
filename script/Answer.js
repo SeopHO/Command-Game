@@ -5,7 +5,7 @@ let user_len=-1;
 let keyOnOff=true;
 //true-can. false-can't
 
-let user_stop=false;
+let user_stop=true;
 
 function userSubmit()
 {
@@ -67,4 +67,3 @@ function keyUpHandler()
         userSubmit();
     }
 }
-    
