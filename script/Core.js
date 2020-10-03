@@ -23,10 +23,20 @@ let Commands=[command_up, command_down, command_right, command_left];
 let Commands_text=[command_up.text, command_down.text, command_right.text, command_left.text];
 let Commands_user=[];
 let Commands_len = Commands.length;
+let lv = [5,10,15,20]; //lv[3] = Level 'hell'
 
 //let Correct_count=-1;
 // let Wrong_count=0;
 let Wrong=false;
+
+let level = document.querySelector('.level');
+let level_count = 1;
+
+
+function drawLevel()
+{
+    level.append(' ',level_count);
+}
 
 function ShuffleCommands()
 {
@@ -60,10 +70,12 @@ function compareResult()
     if(Wrong == true)
     {
         alert('WRONG!!');
+        Level = 1;
     }
     else
     {
         alert('CORRECT!');
+        Level_count++;
     }
 }
 
@@ -79,7 +91,7 @@ function compareCommands()
     compareResult();
 }
 
-//Test...
+//Test...function
 function compareCommandsTest()
 {
     for(let i=0;i<Commands_len;i++)
@@ -95,12 +107,13 @@ function compareCommandsTest()
     }
         //console.log(Correct_count,Wrong_count);
 }
-//
+
 
 
 //main function
 function coreInit()
 {
+    drawLevel();
     ShuffleCommands();
     questionInit();
 }
