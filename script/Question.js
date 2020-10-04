@@ -1,6 +1,6 @@
 let question = document.querySelector('.question');
 
-let count=0;
+let Q_count=0;
 
 function appearQuestion()
 {
@@ -16,10 +16,10 @@ function disappearQuestion()
 function drawQuestion()
 {
     let timer=setInterval(function(){
-        let rec = Commands_text[count];
+        let rec = Commands_text[Q_count];
         question.append(`${rec} `);
-        count++;
-        if(count === Commands_len)
+        Q_count++;
+        if(Q_count === Commands_len)
         {
             clearInterval(timer);
             setTimeout(disappearQuestion,3000);
@@ -30,5 +30,6 @@ function drawQuestion()
 
 function questionInit()
 {
+    appearQuestion();
     drawQuestion();
 }

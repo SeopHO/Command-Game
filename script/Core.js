@@ -97,26 +97,19 @@ function compareCommandsTest()
         //console.log(Correct_count,Wrong_count);
 }
 
-let div=document.querySelector('div');
+let next = document.querySelector('.next');
+let again = document.querySelector('.again');
+
+let finish_check=false;
 
 function Clear()
 {
-    div.classList.remove(".question");
+    question.innerHTML="";
+    answer.innerHTML="";
+
+
+    Commands_user.splice(0,Commands_len);
 }
-
-function reCoreinit()
-{
-    Clear();
-    disappearButton();
-    appearQuestion();
-    ShuffleCommands();
-    questionInit();
-    LevelInit();
-
-}
-
-let next = document.querySelector('.next');
-let again = document.querySelector('.again');
 
 function disappearButton()
 {
@@ -137,16 +130,20 @@ next.addEventListener("mouseout",function(){
 next.addEventListener("click",function(){
     //location.reload();
     level_count++;
-    reCoreinit();
+    Q_count=0;
+    user_len=-1;
+    Clear();
+    coreInit();
     console.log(true);
     console.log(level_count);
 });
 
 //main function
-function coreInit()
+function coreInit() 
 {
-    disappearButton();
     ShuffleCommands();
+    console.log(Commands,Commands_text);
+    disappearButton();
     questionInit();
     LevelInit();
 }
