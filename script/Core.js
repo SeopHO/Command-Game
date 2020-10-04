@@ -23,20 +23,10 @@ let Commands=[command_up, command_down, command_right, command_left];
 let Commands_text=[command_up.text, command_down.text, command_right.text, command_left.text];
 let Commands_user=[];
 let Commands_len = Commands.length;
-let lv = [5,10,15,20]; //lv[3] = Level 'hell'
 
 //let Correct_count=-1;
 // let Wrong_count=0;
 let Wrong=false;
-
-let level = document.querySelector('.level');
-let level_count = 1;
-
-
-function drawLevel()
-{
-    level.append(' ',level_count);
-}
 
 function ShuffleCommands()
 {
@@ -64,18 +54,17 @@ function AddCommands()
     Commands_len+=Commands_len;
 }
 
-
 function compareResult()
 {
     if(Wrong == true)
     {
         alert('WRONG!!');
-        Level = 1;
+        again.style.display = 'block';
     }
     else
     {
         alert('CORRECT!');
-        Level_count++;
+        next.style.display = 'block';
     }
 }
 
@@ -108,18 +97,61 @@ function compareCommandsTest()
         //console.log(Correct_count,Wrong_count);
 }
 
+let div=document.querySelector('div');
 
+function Clear()
+{
+    div.classList.remove(".question");
+}
+
+function reCoreinit()
+{
+    Clear();
+    disappearButton();
+    appearQuestion();
+    ShuffleCommands();
+    questionInit();
+    LevelInit();
+
+}
+
+let next = document.querySelector('.next');
+let again = document.querySelector('.again');
+
+function disappearButton()
+{
+    next.style.display='none';
+    again.style.display = 'none';
+}
+
+
+next.addEventListener("mouseover",function(){
+    next.style.color='red';
+    next.style.cursor='pointer';
+});
+
+next.addEventListener("mouseout",function(){
+    next.style.color='black';
+});
+
+next.addEventListener("click",function(){
+    //location.reload();
+    level_count++;
+    reCoreinit();
+    console.log(true);
+    console.log(level_count);
+});
 
 //main function
 function coreInit()
 {
-    drawLevel();
+    disappearButton();
     ShuffleCommands();
     questionInit();
+    LevelInit();
 }
 
 coreInit();
-
 
 
 

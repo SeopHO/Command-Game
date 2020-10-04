@@ -2,9 +2,15 @@ let question = document.querySelector('.question');
 
 let count=0;
 
+function appearQuestion()
+{
+    question.style.display='block';
+    user_stop=true;
+}
 function disappearQuestion()
 {
     question.style.display='none';
+    user_stop = false;
 }
 
 function drawQuestion()
@@ -17,7 +23,7 @@ function drawQuestion()
         {
             clearInterval(timer);
             setTimeout(disappearQuestion,3000);
-            user_stop = false;
+            clearTimeout(timer);
         }
     },1000)
 }
@@ -26,4 +32,3 @@ function questionInit()
 {
     drawQuestion();
 }
-
