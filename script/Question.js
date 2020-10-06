@@ -15,8 +15,9 @@ function disappearQuestion()
 
 function drawQuestion()
 {
-    let timer=setInterval(function(){
-        let rec = Commands_text[Q_count];
+    let timer=setInterval(function()
+    {
+        let rec = randCommands[Q_count].text;
         question.append(`${rec} `);
         Q_count++;
         if(Q_count === Commands_len)
