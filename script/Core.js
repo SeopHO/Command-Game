@@ -23,15 +23,12 @@ let Commands=[command_up, command_down, command_right, command_left];
 
 let randCommands=[];
 let Commands_user=[];
-
 let Commands_len = Commands.length;
 
 let Wrong=false;
 
 let rand_1,rand_2,rand_3,rand_4;
 let rand_arr=[]; 
-
-let already=false; 
 
 function CreateRandomNum()
 {
@@ -67,11 +64,12 @@ function ShuffleCommands()
 
 function AddCommands()
 {
-    for(let i =0;i<Commands_len;i++)
+    for(let i=0;i<Commands_len+CheckLevel();i++)
     {
         randCommands.push(randCommands[i]);
     }
-    Commands_len+=Commands_len;
+    // Commands_len+=Commands_len;
+    Commands_len = Commands_len + CheckLevel();
 }
 
 function compareResult()
@@ -80,6 +78,8 @@ function compareResult()
     {
         alert('WRONG!!');
         again.style.display = 'block';
+
+        Wrong = false; //Change default value.
     }
     else
     {
@@ -100,9 +100,6 @@ function compareCommands()
     compareResult();
 }
 
-
-let again = document.querySelector('.again');
-
 let finish_check=false;
 
 function Clear()
@@ -120,13 +117,9 @@ function disappearButton()
     again.style.display = 'none';
 }
 
-
-
 //main function
 function coreInit() 
 {
-
-    
     ShuffleCommands();
     CreateRandomNum();
     disappearButton();
@@ -136,7 +129,6 @@ function coreInit()
     console.log(Commands);
     console.log(randCommands);
     console.log(rand_arr);
-
 }
 
 coreInit();
