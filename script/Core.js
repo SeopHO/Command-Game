@@ -44,8 +44,6 @@ function CreateRandomNum()
 
     rand_arr = [rand_1,rand_2,rand_3,rand_4];
     ChoiceCommands(rand_arr);
-
-    
 }
 
 function AddRandomNum()
@@ -78,6 +76,11 @@ function ShuffleCommands()
     }
 }
 
+function Savelen()
+{
+
+}
+        
 function AddCommands()
 {
     //rand_arr.push(rand_arr);
