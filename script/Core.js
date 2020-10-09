@@ -28,7 +28,12 @@ let Commands_len = Commands.length;
 let Wrong=false;
 
 let rand_1,rand_2,rand_3,rand_4;
+
+let addrand;
+let addCheck = false;
+
 let rand_arr=[]; 
+
 
 function CreateRandomNum()
 {
@@ -39,6 +44,17 @@ function CreateRandomNum()
 
     rand_arr = [rand_1,rand_2,rand_3,rand_4];
     ChoiceCommands(rand_arr);
+
+    
+}
+
+function AddRandomNum()
+{
+    addrand = Math.floor(Math.random()*4);
+
+    rand_arr.push(addrand);
+    Commands.push(Commands[addrand]);
+    //Commands_len++;
 }
 
 function ChoiceCommands(rand_arr)
@@ -64,12 +80,14 @@ function ShuffleCommands()
 
 function AddCommands()
 {
-    for(let i=0;i<Commands_len+CheckLevel();i++)
+    //rand_arr.push(rand_arr);
+
+    for(let i=0;i<Commands_len;i++)
     {
         randCommands.push(randCommands[i]);
     }
     // Commands_len+=Commands_len;
-    Commands_len = Commands_len + CheckLevel();
+    Commands_len += Commands_len;
 }
 
 function compareResult()
@@ -120,8 +138,12 @@ function disappearButton()
 //main function
 function coreInit() 
 {
-    ShuffleCommands();
     CreateRandomNum();
+    if(level_count%3 == 0)
+    {
+        AddRandomNum();
+    }
+    ShuffleCommands();
     disappearButton();
     LevelInit();
     questionInit();
@@ -129,6 +151,10 @@ function coreInit()
     console.log(Commands);
     console.log(randCommands);
     console.log(rand_arr);
+    console.log(Commands_len);
+    
+    console.log(addrand);
+
 }
 
 coreInit();
