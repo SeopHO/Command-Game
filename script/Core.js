@@ -28,12 +28,9 @@ let Commands_len = Commands.length;
 let Wrong=false;
 
 let rand_1,rand_2,rand_3,rand_4;
-
 let addrand;
-let addCheck = false;
 
-let rand_arr=[]; 
-
+let rand_arr = [];
 
 function CreateRandomNum()
 {
@@ -49,10 +46,11 @@ function CreateRandomNum()
 function AddRandomNum()
 {
     addrand = Math.floor(Math.random()*4);
-
+    
     rand_arr.push(addrand);
     Commands.push(Commands[addrand]);
-    //Commands_len++;
+    randCommands.push(randCommands[addrand]);
+    Commands_len++;
 }
 
 function ChoiceCommands(rand_arr)
@@ -76,11 +74,6 @@ function ShuffleCommands()
     }
 }
 
-function Savelen()
-{
-
-}
-        
 function AddCommands()
 {
     //rand_arr.push(rand_arr);
@@ -128,14 +121,13 @@ function Clear()
     question.innerHTML="";
     answer.innerHTML="";
 
-
     Commands_user.splice(0,Commands_len);
 }
 
 function disappearButton()
 {
     next.style.display='none';
-    again.style.display = 'none';
+    again.style.display='none';
 }
 
 //main function
@@ -161,10 +153,3 @@ function coreInit()
 }
 
 coreInit();
-
-
-
-
-
-
-

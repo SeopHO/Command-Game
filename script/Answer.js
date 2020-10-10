@@ -28,7 +28,6 @@ function drawAnswer(text)
 document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
 
-
 function keyDownHandler(event) 
 {
     if(keyOnOff == true && user_stop == false)
