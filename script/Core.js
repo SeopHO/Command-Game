@@ -23,67 +23,52 @@ let Commands=[command_up, command_down, command_right, command_left];
 
 let randCommands=[];
 let Commands_user=[];
-let Commands_len = Commands.length;
+let questionLen;
 
 let Wrong=false;
 
-let rand_1,rand_2,rand_3,rand_4;
-let addrand;
+//random value.
+let randNum;
+let randNumArr = [];
 
-let rand_arr = [];
+function QuestionLen()
+{
+    return questionLen = level_diff[level_count-1];
+}
 
 function CreateRandomNum()
 {
-    rand_1 = Math.floor(Math.random()*4);
-    rand_2 = Math.floor(Math.random()*4);
-    rand_3 = Math.floor(Math.random()*4);
-    rand_4 = Math.floor(Math.random()*4);
-
-    rand_arr = [rand_1,rand_2,rand_3,rand_4];
-    ChoiceCommands(rand_arr);
-}
-
-function AddRandomNum()
-{
-    addrand = Math.floor(Math.random()*4);
-    
-    rand_arr.push(addrand);
-    Commands.push(Commands[addrand]);
-    randCommands.push(randCommands[addrand]);
-    Commands_len++;
-}
-
-function ChoiceCommands(rand_arr)
-{
-    for(let i=0;i<Commands_len;i++)
+    for(let i=0;i<QuestionLen();i++)
     {
-        let temp = rand_arr[i];
-        // randCommands.push(Commands[temp]);
+        randNum = Math.floor(Math.random() * 4);
+        randNumArr.push(randNum);
+
+        let temp = randNumArr[i];
         randCommands[i] = Commands[temp];
+    
     }
+    // ChoiceCommands(randNumArr);
 }
 
-function ShuffleCommands()
-{
-    for(let i=0;i<Commands_len;i++)
-    {
-        let j = Math.floor(Math.random()*(i+1));
-        let temp1 = Commands[i];
-        Commands[i] = Commands[j];
-        Commands[j] = temp1;
-    }
-}
+// function ChoiceCommands(randNumArr)
+// {
+//     for(let i=0;i<QuestionLen();i++)
+//     {
+//         let temp = randNumArr[i];
+//         randCommands[i] = Commands[temp];
+//     }
+// }
 
-function AddCommands()
+function compareCommands()
 {
-    //rand_arr.push(rand_arr);
-
-    for(let i=0;i<Commands_len;i++)
+    for(let i=0;i<QuestionLen();i++)
     {
-        randCommands.push(randCommands[i]);
+        if(randCommands[i].code != Commands_user[i])
+        {
+            Wrong = true;
+        }
     }
-    // Commands_len+=Commands_len;
-    Commands_len += Commands_len;
+    compareResult();
 }
 
 function compareResult()
@@ -102,26 +87,19 @@ function compareResult()
     }
 }
 
-function compareCommands()
-{
-    for(let i=0;i<Commands_len;i++)
-    {
-        if(randCommands[i].code != Commands_user[i])
-        {
-            Wrong = true;
-        }
-    }
-    compareResult();
-}
-
-let finish_check=false;
+// let finish_check=false;
 
 function Clear()
 {
     question.innerHTML="";
     answer.innerHTML="";
 
-    Commands_user.splice(0,Commands_len);
+    Q_count=0;
+    user_len=-1;
+
+    Commands_user.splice(0,QuestionLen());
+    randNumArr.splice(0,QuestionLen());
+    randCommands.splice(0,QuestionLen());
 }
 
 function disappearButton()
@@ -134,22 +112,11 @@ function disappearButton()
 function coreInit() 
 {
     CreateRandomNum();
-    if(level_count%3 == 0)
-    {
-        AddRandomNum();
-    }
-    ShuffleCommands();
     disappearButton();
     LevelInit();
     questionInit();
-
-    console.log(Commands);
-    console.log(randCommands);
-    console.log(rand_arr);
-    console.log(Commands_len);
-    
-    console.log(addrand);
-
+    console.log('QuestionLen',QuestionLen());
+    console.log('RandArr',randCommands);
 }
 
 coreInit();

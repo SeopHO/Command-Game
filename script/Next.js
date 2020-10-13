@@ -10,10 +10,7 @@ next.addEventListener("mouseout",function(){
 });
 
 next.addEventListener("click",function(){
-    //location.reload();
     level_count++;
-    Q_count=0;
-    user_len=-1;
     Clear();
     coreInit();
     console.log(true);

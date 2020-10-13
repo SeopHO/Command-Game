@@ -20,7 +20,7 @@ function drawQuestion()
         let rec = randCommands[Q_count].text;
         question.append(`${rec} `);
         Q_count++;
-        if(Q_count === Commands_len)
+        if(Q_count === QuestionLen())
         {
             clearInterval(timer);
             setTimeout(disappearQuestion,3000);

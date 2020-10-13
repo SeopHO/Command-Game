@@ -9,7 +9,7 @@ let user_stop=true;
 
 function userSubmit()
 {
-    if(user_len === (Commands_len-1))
+    if(user_len === (QuestionLen())-1)
     {
         user_stop = true;
         alert('STOP');
