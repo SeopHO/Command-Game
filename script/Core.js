@@ -45,19 +45,8 @@ function CreateRandomNum()
 
         let temp = randNumArr[i];
         randCommands[i] = Commands[temp];
-    
     }
-    // ChoiceCommands(randNumArr);
 }
-
-// function ChoiceCommands(randNumArr)
-// {
-//     for(let i=0;i<QuestionLen();i++)
-//     {
-//         let temp = randNumArr[i];
-//         randCommands[i] = Commands[temp];
-//     }
-// }
 
 function compareCommands()
 {
@@ -87,8 +76,6 @@ function compareResult()
     }
 }
 
-// let finish_check=false;
-
 function Clear()
 {
     question.innerHTML="";
@@ -117,6 +104,10 @@ function coreInit()
     questionInit();
     console.log('QuestionLen',QuestionLen());
     console.log('RandArr',randCommands);
+
+
+    
+    
 }
 
 coreInit();

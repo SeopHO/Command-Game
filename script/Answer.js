@@ -1,5 +1,4 @@
 let answer = document.querySelector('.answer');
-// let user_len=Commands_len;
 let user_len=-1;
 
 let keyOnOff=true;
