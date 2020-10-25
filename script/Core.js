@@ -33,7 +33,15 @@ let randNumArr = [];
 
 function QuestionLen()
 {
-    return questionLen = level_diff[level_count-1];
+    if(level_count >= 23)
+    {
+        let temp;
+        temp = level_count;
+        return questionLen = level_diff[temp - 1];
+    }
+        
+    else
+        return questionLen = level_diff[level_count-1];
 }
 
 function CreateRandomNum()
@@ -42,7 +50,6 @@ function CreateRandomNum()
     {
         randNum = Math.floor(Math.random() * 4);
         randNumArr.push(randNum);
-
         let temp = randNumArr[i];
         randCommands[i] = Commands[temp];
     }
@@ -103,11 +110,7 @@ function coreInit()
     LevelInit();
     questionInit();
     console.log('QuestionLen',QuestionLen());
-    console.log('RandArr',randCommands);
-
-
-    
-    
+    console.log('RandArr',randCommands);    
 }
 
 coreInit();

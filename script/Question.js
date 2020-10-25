@@ -17,9 +17,16 @@ function drawQuestion()
 {
     let timer=setInterval(function()
     {
+        let temp=null;
         let rec = randCommands[Q_count].text;
         question.append(`${rec} `);
-        Q_count++;
+        temp = Q_count;
+
+        if(Q_count>=23)
+            Q_count = temp;
+        else
+            Q_count++;
+
         if(Q_count === QuestionLen())
         {
             clearInterval(timer);
