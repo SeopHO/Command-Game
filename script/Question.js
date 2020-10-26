@@ -2,6 +2,8 @@ let question = document.querySelector('.question');
 
 let Q_count=0;
 
+
+
 function appearQuestion()
 {
     question.style.display='block';
@@ -17,15 +19,10 @@ function drawQuestion()
 {
     let timer=setInterval(function()
     {
-        let temp=null;
         let rec = randCommands[Q_count].text;
         question.append(`${rec} `);
-        temp = Q_count;
-
-        if(Q_count>=23)
-            Q_count = temp;
-        else
-            Q_count++;
+        
+        Q_count++;
 
         if(Q_count === QuestionLen())
         {
@@ -38,6 +35,8 @@ function drawQuestion()
 
 function questionInit()
 {
+    console.log(level_len);
+    
     appearQuestion();
     drawQuestion();
 }
