@@ -1,18 +1,22 @@
 const command_up={
     text:'UP',
     code:38,
+    url:"./image/up.png",
 }
 const command_down={
     text:'DOWN',
     code:40,
+    url:"./image/down.png",
 }
 const command_right={
     text:'RIGHT',
     code:39,
+    url:"./image/right.png",
 }
 const command_left={
     text:'LEFT',
     code:37,
+    url:"./image/left.png",
 }
 const command_wrong={
     text:'X',

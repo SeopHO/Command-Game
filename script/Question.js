@@ -3,7 +3,6 @@ let question = document.querySelector('.question');
 let Q_count=0;
 
 
-
 function appearQuestion()
 {
     question.style.display='block';
@@ -20,6 +19,7 @@ function drawQuestion()
     let timer=setInterval(function()
     {
         let rec = randCommands[Q_count].text;
+        drawcommand(rec);
         question.append(`${rec} `);
         
         Q_count++;
@@ -40,3 +40,4 @@ function questionInit()
     appearQuestion();
     drawQuestion();
 }
+
