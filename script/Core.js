@@ -95,6 +95,7 @@ function Clear()
     Commands_user.splice(0,QuestionLen());
     randNumArr.splice(0,QuestionLen());
     randCommands.splice(0,QuestionLen());
+    
 }
 
 function disappearButton()
