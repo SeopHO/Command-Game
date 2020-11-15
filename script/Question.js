@@ -10,14 +10,17 @@ function appearQuestion()
 
 function disappearBalloon()
 {
-    ctx.clearRect(qx+500-170,ca_height/2-240,50,50);
+    ctx.clearRect(qx+500-120,ca_height/2-350,130,80);
 }
 
 function disappearQuestion()
 {
     question.style.display='none';
     // user_stop = false;
-    ctx.clearRect(qx+500-120,ca_height/2-145,125,100);
+    //disappearBalloon();
+    ctx.clearRect(qx+500-200,ca_height/2-100,125,100);
+    //ctx.clearRect(qx+500-120,ca_height/2-145,125,100);
+
 }
 
 function changeTurn()
@@ -25,7 +28,8 @@ function changeTurn()
     user_stop = false;
     question.style.display='none';
     // user_stop = false;
-    ctx.clearRect(qx+500-120,ca_height/2-145,125,100);
+    //ctx.clearRect(qx+500-120,ca_height/2-145,125,100);
+    ctx.clearRect(qx+500-114,ca_height/2-170,123,105);
 }
 
 function drawQuestion()
@@ -33,7 +37,7 @@ function drawQuestion()
     let timer=setInterval(function()
     {
         let rec = randCommands[Q_count].text;
-        //drawballoon();
+        drawballoon();
         drawcommand(rec);
         question.append(`${rec} `);
         

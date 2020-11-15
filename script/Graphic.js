@@ -20,7 +20,6 @@ let left = new Image();
 let balloon = new Image();
 balloon.src = "./image/balloon.png";
 
-
 queImage.src = "./image/Answer.png";
 answImage.src = "./image/Question.png";
 
@@ -66,7 +65,6 @@ function drawcommand(rev)
             right.onload = () => 
             {
                 ctx.drawImage(right,qx+500-120,ca_height/2-145);
-
             }
             break;
         case command_left.text:
@@ -74,13 +72,13 @@ function drawcommand(rev)
             left.onload = () => 
             {
                 ctx.drawImage(left,qx+500-120,ca_height/2-145);
-
             }
             break;
         default:
             break;
     }
 }
+
 
 
 

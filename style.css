@@ -5,10 +5,9 @@
     font-family: Courier
 }
 
-
 canvas
 {
-    background:white ; 
+    background:#eee ; 
     display: block; 
     margin: 0 auto; 
 }
@@ -18,4 +17,3 @@ canvas
 {
     display: inline;
 }
-
