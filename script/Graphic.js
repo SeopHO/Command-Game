@@ -50,7 +50,7 @@ function drawcommand(rev)
             up.src = command_up.url;
             up.onload=()=>
             {
-                ctx.drawImage(up,30,10);
+                ctx.drawImage(up,qx+500-120,ca_height/2-145);
             }
             console.log(true);
             break;
@@ -58,14 +58,14 @@ function drawcommand(rev)
             down.src = command_down.url;
             down.onload=()=>
             {
-                ctx.drawImage(down,30,10);
+                ctx.drawImage(down,qx+500-120,ca_height/2-145);
             }
             break;
         case command_right.text:
             right.src = command_right.url;
             right.onload = () => 
             {
-                ctx.drawImage(right, 30, 10);
+                ctx.drawImage(right,qx+500-120,ca_height/2-145);
 
             }
             break;
@@ -73,7 +73,7 @@ function drawcommand(rev)
             left.src = command_left.url;
             left.onload = () => 
             {
-                ctx.drawImage(left, 30, 10);
+                ctx.drawImage(left,qx+500-120,ca_height/2-145);
 
             }
             break;

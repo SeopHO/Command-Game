@@ -38,9 +38,7 @@ let randNumArr = [];
 function QuestionLen()
 {
     if(level_count > level_len)
-    {
         return questionLen = level_diff[level_len-1];
-    }
     else
         return questionLen = level_diff[level_count-1];
 }

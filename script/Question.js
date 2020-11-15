@@ -8,11 +8,24 @@ function appearQuestion()
     user_stop=true;
 }
 
+function disappearBalloon()
+{
+    ctx.clearRect(qx+500-170,ca_height/2-240,50,50);
+}
+
 function disappearQuestion()
 {
     question.style.display='none';
+    // user_stop = false;
+    ctx.clearRect(qx+500-120,ca_height/2-145,125,100);
+}
+
+function changeTurn()
+{
     user_stop = false;
-    ctx.clearRect(30,10,200,200);
+    question.style.display='none';
+    // user_stop = false;
+    ctx.clearRect(qx+500-120,ca_height/2-145,125,100);
 }
 
 function drawQuestion()
@@ -20,20 +33,26 @@ function drawQuestion()
     let timer=setInterval(function()
     {
         let rec = randCommands[Q_count].text;
-        drawballoon();
+        //drawballoon();
         drawcommand(rec);
         question.append(`${rec} `);
-        ctx.clearRect(30,10,200,200);
+        
+        //ctx.clearRect(qx+500-170,ca_height/2-240,200,200);
         Q_count++;
 
         if(Q_count === QuestionLen())
         {
             clearInterval(timer);
-            setTimeout(disappearQuestion,3000);
+            setTimeout(changeTurn,2000);
             clearTimeout(timer);
-            
         }
-    },1000)
+        else
+        {
+            setTimeout(disappearQuestion,1000);
+        }
+
+        
+    },2000)
 }
 
 function questionInit()
