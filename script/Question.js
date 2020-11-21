@@ -13,7 +13,7 @@ function disappearQuestion()
     question.style.display='none';
     // user_stop = false;
     //disappearballoonQ();
-    ctx.clearRect(bx,by,200,173);
+    ctx.clearRect(bxQ,byQ,200,173);
     //ctx.clearRect(qx+500-120,ca_height/2-145,125,100);
 }
 
@@ -23,7 +23,7 @@ function changeTurn()
     question.style.display='none';
     // user_stop = false;
     //ctx.clearRect(qx+500-120,ca_height/2-145,125,100);
-    ctx.clearRect(bx,by,200,173);
+    ctx.clearRect(bxQ,byQ,200,173);
 }
 
 function drawQuestion()

@@ -13,12 +13,14 @@ let qy = (ca_height/2)-100; //question y
 let ax = qx+500; //player x
 let ay = (ca_height/2)-100; //player y
 
-let bx = qx+500-170;
-let by = ca_height/2-265;
+let bxQ = qx+500-170;  //question balloon x
+let byQ = ca_height/2-265; //question balloon y
+
+let bxA = ax-500;
+let byA = ca_height/2-270;
 
 let commandX = qx+500-120;
 let commandY = ca_height/2-168;
-
 
 let queImage = new Image();
 let answImage = new Image();
@@ -53,7 +55,12 @@ answImage.onload=()=>
 
 function drawballoonQ()
 {
-    ctx.drawImage(balloonQ,bx,by);
+    ctx.drawImage(balloonQ,bxQ,byQ);
+}
+
+function drawballoonA()
+{
+    ctx.drawImage(balloonA,bxA,byA);
 }
 
 function drawcommand(rev)
@@ -65,7 +72,6 @@ function drawcommand(rev)
             {
                 ctx.drawImage(up,commandX,commandY);
             }
-            console.log(true);
             break;
         case command_down.text:
             down.src = command_down.url;
@@ -92,11 +98,3 @@ function drawcommand(rev)
             break;
     }
 }
-
-
-
-
-
-
-
-
