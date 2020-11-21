@@ -6,6 +6,9 @@ let keyOnOff=true;
 
 let user_stop=true;
 
+let acommandX;
+let acommandY;
+
 function userSubmit()
 {
     if(user_len === (QuestionLen())-1)

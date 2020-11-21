@@ -7,7 +7,18 @@ let ctx = canvas.getContext("2d");
 let ca_width=1000;
 let ca_height=800;
 
-let qx = 200; //player x
+let qx = 200; //question x
+let qy = (ca_height/2)-100; //question y
+
+let ax = qx+500; //player x
+let ay = (ca_height/2)-100; //player y
+
+let bx = qx+500-170;
+let by = ca_height/2-265;
+
+let commandX = qx+500-120;
+let commandY = ca_height/2-168;
+
 
 let queImage = new Image();
 let answImage = new Image();
@@ -17,8 +28,11 @@ let down = new Image();
 let right = new Image();
 let left = new Image();
 
-let balloon = new Image();
-balloon.src = "./image/balloon.png";
+let balloonQ = new Image();
+balloonQ.src = "./image/balloonQ.png";
+
+let balloonA = new Image();
+balloonA.src = "./image/balloonA.png";
 
 queImage.src = "./image/Answer.png";
 answImage.src = "./image/Question.png";
@@ -30,16 +44,16 @@ answImage.src = "./image/Question.png";
 
 queImage.onload=()=>
 {
-    ctx.drawImage(queImage,qx,(ca_height/2)-100);
+    ctx.drawImage(queImage,qx,qy);
 }
 answImage.onload=()=>
 {
-    ctx.drawImage(answImage,qx+500,ca_height/2-100);
+    ctx.drawImage(answImage,ax,ay);
 }
 
-function drawballoon()
+function drawballoonQ()
 {
-    ctx.drawImage(balloon,qx+500-170,ca_height/2-240);
+    ctx.drawImage(balloonQ,bx,by);
 }
 
 function drawcommand(rev)
@@ -49,7 +63,7 @@ function drawcommand(rev)
             up.src = command_up.url;
             up.onload=()=>
             {
-                ctx.drawImage(up,qx+500-120,ca_height/2-145);
+                ctx.drawImage(up,commandX,commandY);
             }
             console.log(true);
             break;
@@ -57,21 +71,21 @@ function drawcommand(rev)
             down.src = command_down.url;
             down.onload=()=>
             {
-                ctx.drawImage(down,qx+500-120,ca_height/2-145);
+                ctx.drawImage(down,commandX,commandY);
             }
             break;
         case command_right.text:
             right.src = command_right.url;
             right.onload = () => 
             {
-                ctx.drawImage(right,qx+500-120,ca_height/2-145);
+                ctx.drawImage(right,commandX,commandY);
             }
             break;
         case command_left.text:
             left.src = command_left.url;
             left.onload = () => 
             {
-                ctx.drawImage(left,qx+500-120,ca_height/2-145);
+                ctx.drawImage(left,commandX,commandY);
             }
             break;
         default:

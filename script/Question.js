@@ -8,19 +8,13 @@ function appearQuestion()
     user_stop=true;
 }
 
-function disappearBalloon()
-{
-    ctx.clearRect(qx+500-120,ca_height/2-350,130,80);
-}
-
 function disappearQuestion()
 {
     question.style.display='none';
     // user_stop = false;
-    //disappearBalloon();
-    ctx.clearRect(qx+500-200,ca_height/2-100,125,100);
+    //disappearballoonQ();
+    ctx.clearRect(bx,by,200,173);
     //ctx.clearRect(qx+500-120,ca_height/2-145,125,100);
-
 }
 
 function changeTurn()
@@ -29,7 +23,7 @@ function changeTurn()
     question.style.display='none';
     // user_stop = false;
     //ctx.clearRect(qx+500-120,ca_height/2-145,125,100);
-    ctx.clearRect(qx+500-114,ca_height/2-170,123,105);
+    ctx.clearRect(bx,by,200,173);
 }
 
 function drawQuestion()
@@ -37,7 +31,7 @@ function drawQuestion()
     let timer=setInterval(function()
     {
         let rec = randCommands[Q_count].text;
-        drawballoon();
+        drawballoonQ();
         drawcommand(rec);
         question.append(`${rec} `);
         
@@ -55,7 +49,6 @@ function drawQuestion()
             setTimeout(disappearQuestion,1000);
         }
 
-        
     },2000)
 }
 
