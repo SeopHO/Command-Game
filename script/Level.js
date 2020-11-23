@@ -14,7 +14,3 @@ function LevelInit()
 {
     drawLevel(level_count);
 }
-
-
-
-

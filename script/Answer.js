@@ -8,9 +8,6 @@ let keyOnOff=true;
 
 let user_stop=true;
 
-let acommandX;
-let acommandY;
-
 function userSubmit()
 {
     if(user_len === (QuestionLen())-1)
@@ -69,10 +66,16 @@ function drawAnswer(text)
 
     setTimeout(disappearAnswer,2000);
 
+    console.log('before user len',before_user_len);
+    
     user_len++;
 
+    console.log('user len ',user_len);
     if(before_user_len<user_len)
+    {
         disappearAnswer();
+        drawballoonA();
+    }
 }
 
 document.addEventListener("keydown", keyDownHandler, false);
